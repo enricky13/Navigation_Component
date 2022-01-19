@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">NavComponentTesting</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home_page_static">This is the home page</string>
+    <string name="first_page_static">This is the first page</string>
+    <string name="second_page_static">This is the second page</string>
+</resources>
