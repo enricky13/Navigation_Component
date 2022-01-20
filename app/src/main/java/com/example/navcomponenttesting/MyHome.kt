@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.RadioButton
 import androidx.navigation.fragment.findNavController
 
 // TODO: Rename parameter arguments, choose names that match
@@ -22,6 +23,9 @@ class MyHome : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private var isOldEnough = false
+    private var yesButton: RadioButton? = null
+    private var noButton: RadioButton? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,9 +44,16 @@ class MyHome : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        view.findViewById<Button>(R.id.home_button).setOnClickListener {
-            findNavController().navigate(R.id.action_myHomeFragment_to_firstFragment)
-        }
+        yesButton = view.findViewById(R.id.yes_radioButton)
+        noButton = view.findViewById(R.id.no_radioButton)
+        view.findViewById<Button>(R.id.home_button).setOnClickListener(
+            View.OnClickListener {
+                findNavController().navigate(MyHomeDirections
+                    .actionMyHomeFragmentToFirstFragment(
+                        yesButton?.isChecked ?: false
+                    ))
+            }
+        )
         super.onViewCreated(view, savedInstanceState)
     }
 
@@ -65,4 +76,6 @@ class MyHome : Fragment() {
                 }
             }
     }
+
+
 }

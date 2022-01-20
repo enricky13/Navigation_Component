@@ -24,12 +24,10 @@
 
         <action android:id="@+id/action_firstFragment_to_secondFragment"
             app:destination="@id/fragmentTwo"/>
-
         <argument
-            android:name="argSecondFragment"
-            app:argType="integer"
-            android:defaultValue="2"
-            />
+            android:name="isOldEnough"
+            app:argType="boolean"
+            android:defaultValue="false" />
 
     </fragment>
 
@@ -41,10 +39,12 @@
 
         <action android:id="@+id/action_secondFragment_to_myHomeFragment"
             app:popUpTo="@id/fragmentHome"
-
             />
         <action android:id="@+id/action_secondFragment_to_firstFragment"
             app:popUpTo="@id/fragmentOne"/>
+        <argument
+            android:name="isWildEnough"
+            app:argType="boolean" />
 
     </fragment>
 
